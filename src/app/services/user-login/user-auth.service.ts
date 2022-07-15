@@ -4,8 +4,8 @@ import { AuthenticationRequest } from 'src/app/model/authentication-request.mode
 import {map} from 'rxjs/operators';
 import { NewPassword } from 'src/app/model/newpassword.model';
 
-const API_URL = "http://localhost:8682/api/v1.0/tweets/login";
-export const Forgot_URL="http://localhost:8682/api/v1.0/tweets";
+const API_URL = "http://tweetappbackend-env-1.eba-vptyavtf.ap-south-1.elasticbeanstalk.com/api/v1.0/tweets/login";
+export const Forgot_URL="http://tweetappbackend-env-1.eba-vptyavtf.ap-south-1.elasticbeanstalk.com/api/v1.0/tweets";
 
 @Injectable({
   providedIn: 'root'

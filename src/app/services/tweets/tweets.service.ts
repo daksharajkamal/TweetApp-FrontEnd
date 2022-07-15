@@ -7,7 +7,7 @@ import { TweetResponse } from 'src/app/model/tweetResponse.model';
 import { TweetUpdate } from 'src/app/model/tweetUpdate.model';
 import {map} from 'rxjs/operators';
 
-const API_URL = "http://localhost:8682/api/v1.0"
+const API_URL = "http://tweetappbackend-env-1.eba-vptyavtf.ap-south-1.elasticbeanstalk.com/api/v1.0"
 
 
 @Injectable({

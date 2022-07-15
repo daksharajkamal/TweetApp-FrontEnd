@@ -18,7 +18,6 @@ export class RegistrationPageComponent implements OnInit {
   prePasswordCheck: boolean = false;
   passwordLength: boolean = false;
   emailValid: boolean = false;
-  //contactValid : boolean = false;
   phoneValidation: boolean = false;
   phoneValidationIsNan: boolean = false;
   sussesfullyRegistered: boolean = false;
@@ -115,9 +114,7 @@ export class RegistrationPageComponent implements OnInit {
 
   //change date format to YYYY-MM-DD
   checkDate() {
-    // console.log("called check date")
     this.userDate = this.myFormGroup.controls['date'].value;
-    // console.log(this.userDate);
   }
 
 
@@ -127,7 +124,7 @@ export class RegistrationPageComponent implements OnInit {
   //registering the user
 
   register() {
-    // console.log(this.emailValid,this.passwordLength,this.passwordValidation,this.phoneValidation);
+
     if (!this.emailValid &&
       !this.passwordLength &&
       !this.passwordValidation &&
@@ -150,8 +147,6 @@ export class RegistrationPageComponent implements OnInit {
         )
 
         this.userRegistrationService.addNewUser(user).subscribe((response) => {
-          // console.log(response);
-          // console.log("register user");
           this.myFormGroup.controls['firstName'].reset();
           this.myFormGroup.controls['lastName'].reset();
           this.myFormGroup.controls['email'].reset();
@@ -160,18 +155,14 @@ export class RegistrationPageComponent implements OnInit {
           this.myFormGroup.controls['contact'].reset();
           this.showElement = true;
           setTimeout(function () {
-            // console.log('hide');
             this.showElement = false;
             this.router.navigate(['/login'])
           }.bind(this), 3000);
         },
           // failure function
           failureData => {
-            // console.log(failureData);
-            //alert("email alredy taken")
             this.emailNotAvailable = true;
             setTimeout(function () {
-              // console.log('hide');
               this.emailNotAvailable = false;
             }.bind(this), 3000);
           });

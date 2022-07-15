@@ -11,7 +11,7 @@ export class UserSideBarComponent implements OnInit {
   constructor() {}
   
   logout(){
-    // console.log("logout called!")
+ 
     sessionStorage.clear();
   }
 

@@ -28,7 +28,7 @@ export class ViewUsersPageComponent implements OnInit {
   enableSearchButton(){
     let enteredUserName = this.myFormGroup.controls['search'].value;
     if(enteredUserName.length>0){
-      // this.noUsersToDisplay = false;
+  
       this.enableButtonForSearch = true;
     }else{
       this.enableButtonForSearch = false;

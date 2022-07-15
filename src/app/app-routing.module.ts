@@ -14,7 +14,7 @@ import { ViewUsersTweetsComponent } from './user-activity-container/view-users-t
 const routes: Routes = [
   {path : "" , redirectTo : "login", pathMatch : "full"},
   {path : "login", component : LoginPageComponent},
-  // {path:'register', loadChildren:()=>import('./login-registration-container/registration-page/registration-page.component').then(m=>m.RegistrationPageComponent)},
+ 
   {path : "register", component : RegistrationPageComponent},
   {path : "show-tweet", component : ShowTweetsPageComponent,canActivate : [AuthGuardService]},
   {path : "home", component : ShowTweetsPageComponent,canActivate : [AuthGuardService]},

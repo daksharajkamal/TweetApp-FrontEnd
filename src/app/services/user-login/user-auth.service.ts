@@ -16,25 +16,25 @@ export class UserAuthService {
   login(details : AuthenticationRequest):any{
     return this.http.post(API_URL,details).pipe(
       map((successData : Response)=>{
-        // console.log(successData); 
+  
         return successData;
       }),
       map(failureData=>{
-        // console.log(failureData);
+     
         return failureData;
       })
     );
   }
   forgotPassword(username : string, password : string, contact : string):any{
     let newPassword = new NewPassword(password,contact);
-    // console.log(newPassword);
+  
     return this.http.put(Forgot_URL+"/"+username+"/forgot",newPassword).pipe(
       map((successData : Response)=>{
-        // console.log(successData); 
+   
         return successData;
       }),
       map(failureData=>{
-        // console.log(failureData);
+    
         return failureData;
       })
     );

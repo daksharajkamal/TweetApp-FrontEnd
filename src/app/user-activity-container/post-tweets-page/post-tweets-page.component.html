@@ -22,9 +22,7 @@
 
             <div class="col-lg-6">
                 <div class="card2 card border-0 px-4 py-5">
-                    <!-- <p *ngIf="tweetLengthExceeded" style="color: red; text-transform: capitalize;font-size: 14px;letter-spacing: 1px"><b>Tweet</b> should be less than 143 characters </p>
-                    <p *ngIf="tagLengthExceeded" style="color: red; text-transform: capitalize;font-size: 14px;letter-spacing: 1px"><b>Tag</b> should be less than 50 characters </p> -->
-                    <form class="formgroup" [formGroup]="myFormGroup" (ngSubmit)="postTweet()">
+                                 <form class="formgroup" [formGroup]="myFormGroup" (ngSubmit)="postTweet()">
                         <div style="text-align: center;">
                             <p *ngIf="tweetEmpty"><b  style="color: red;">Tweet</b> can't be empty !</p>
                         </div>

@@ -16,9 +16,9 @@
 
 .navbar {
     overflow: hidden;
-    /* background-color: #333; */
+
     position: fixed;
-    /* height: 8%; */
+
     top: 0;
     width: 100%;
   }
@@ -31,9 +31,7 @@
 .link-profile{
     color: white;
 }
-/* .link-profile:hover{
-    color: greenyellow
-} */
+
 .nav-link:hover{
     outline: lightblue;
     color:greenyellow;

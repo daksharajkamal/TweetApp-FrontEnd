@@ -38,13 +38,11 @@ export class ForgotPasswordComponent implements OnInit {
     {
       this.emailValid = false;
       this.noMMatching = false;
-      // console.log(this.emailValid)
+
     }
     else{
   
       this.emailValid = true;
-
-      // console.log(this.emailValid)
     }
     if(email.value.length==0){
       this.emailValid = false
@@ -123,10 +121,8 @@ export class ForgotPasswordComponent implements OnInit {
       let contact = this.myFormGroup.controls['contact'].value;
       this.forgotService.forgotPassword(username,newPassword,contact)
       .subscribe((response)=>{
-        //  console.log(response);
         this.showElement = true;
         setTimeout(function() {
-          // console.log('hide');
           this.showElement = false;
           this.router.navigate(['/login'])
         }.bind(this), 3000);
@@ -137,8 +133,6 @@ export class ForgotPasswordComponent implements OnInit {
       // failure function
       failureData => {
         this.noMMatching = true;
-        // alert("Error Occurred !! Please Try Again")
-        //  console.log(failureData);
       })}else{
         alert("Enter Valid Details!!")
       }

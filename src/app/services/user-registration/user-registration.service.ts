@@ -17,11 +17,11 @@ export class UserRegistrationService {
   addNewUser(user : UserModel){
     return this.http.post(API_URL,user).pipe(
       map((successData : Response)=>{
-        // console.log(successData)
+       
         return successData;
       }),
       map(failureData=>{
-        // console.log(failureData.status);
+     
         return failureData;
       }));
     }

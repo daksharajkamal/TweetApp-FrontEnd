@@ -41,7 +41,7 @@ export class PostTweetsPageComponent implements OnInit {
   }
 
   postTweet(){
-    // console.log("post called");
+
     let tweet = this.myFormGroup.controls['tweet'].value;
     
     if(tweet.length == 0){
@@ -62,20 +62,13 @@ export class PostTweetsPageComponent implements OnInit {
       // calling tweet service for uploading tweet 
 
       this.postTweetService.postTweet(newTweet).subscribe((response : Response)=>{
-        // console.log(response);
-        //console.log(response.text()); 
       });
-  
-      // console.log(this.myFormGroup.controls['tweet'].value);
       this.showElement = true;
         setTimeout(function() {
-          // console.log('hide');
           this.showElement = false;
         }.bind(this), 3000);
       this.myFormGroup.controls['tweet'].reset();
-    //  this.myFormGroup.controls['tag'].reset();
       this.showTweetLength = false;
-      //this.showTagLength = false;
     }
     
   }
@@ -104,27 +97,6 @@ export class PostTweetsPageComponent implements OnInit {
   }
 
 
-
-
-  // tagLengthValidationMethod(){
-    
-  //   let tag = this.myFormGroup.controls['tag'].value;
-    
-  //   if(tag.length!=0){
-  //     this.showTagLength = true;
-  //     this.remainingTagLength = 50 - tag.length;
-  //  }
-  //  else{
-  //    this.showTagLength = false;
-  //  }
-  //   if(tag.length>=50 && tag.length!=0){
-  //     this.tagLengthExceeded = true;
-  //     this.showTagRed = true;
-  //   }else{
-  //     this.tagLengthExceeded = false;
-  //     this.showTagRed = false;
-  //   }
-  // }
 
   ngOnInit(): void {
   }

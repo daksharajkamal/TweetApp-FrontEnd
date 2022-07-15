@@ -23,47 +23,43 @@ export class TweetsService {
   }
 
   replyTweet(reply : string ,id : string){
-    // let headers = new HttpHeaders({'tweetReply': reply});
-    // console.log(id , reply);
+
     let cmt = new Reply(reply);
     return this.http.post(API_URL+"/tweets/"+sessionStorage.getItem('user')+"/reply/"+id,cmt).pipe(
       map((successData : Response)=>{
-        // console.log("success")
-        // console.log(successData)
+    
         return "success";
       }),
       map(failureData=>{
-        // console.log(failureData);
+    
         return failureData;
       })
     );;
   }
 
   likeTweet(id : string){
-    // let headers = new HttpHeaders({'tweetId':id});
+    
     return this.http.post(API_URL+"/tweets/"+sessionStorage.getItem('user')+"/like/"+id,null).pipe(
       map((successData : Response)=>{
-        // console.log("success")
-        // console.log(successData)
+ 
         return "success";
       }),
       map(failureData=>{
-        // console.log(failureData);
+ 
         return failureData;
       })
     );
   }
 
   disLikeTweet(id : string){
-    // let headers = new HttpHeaders({'tweetId':id});
+
     return this.http.post(API_URL+"/tweets/"+sessionStorage.getItem('user')+"/dislike/"+id,null).pipe(
       map((successData : Response)=>{
-        // console.log("success")
-        // console.log(successData)
+
         return "success";
       }),
       map(failureData=>{
-        // console.log(failureData);
+    
         return failureData;
       })
     );
@@ -75,15 +71,14 @@ export class TweetsService {
 
   updateTweet(id : string, text : string){
     let tweetUpdate = new TweetUpdate(id,text);
-    // let headers = new HttpHeaders({'tweetText': text,'tweetId' : id});
+ 
     return this.http.put(API_URL+"/tweets/"+sessionStorage.getItem('user')+"/update",tweetUpdate).pipe(
       map((successData : Response)=>{
-        // console.log("success")
-        // console.log(successData)
+  
         return "success";
       }),
       map(failureData=>{
-        // console.log(failureData);
+       
         return failureData;
       })
     );
@@ -96,15 +91,14 @@ export class TweetsService {
   
   deleteTweet(id : string){
     let headers = new HttpHeaders({'tweetId':id});
-    //headers.append("tweetId",id);
+  
     return this.http.delete(API_URL+"/tweets/"+sessionStorage.getItem('user')+"/delete",{headers}).pipe(
       map((successData : Response)=>{
-        // console.log("success")
-        // console.log(successData)
+      
         return "success";
       }),
       map(failureData=>{
-        // console.log(failureData);
+    
         return failureData;
       })
     );;

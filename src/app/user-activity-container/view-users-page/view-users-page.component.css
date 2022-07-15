@@ -10,7 +10,7 @@
 
 .bg-blue:hover{
     color: greenyellow;
-    /* text-transform: uppercase; */
+
 }
 
 
@@ -20,7 +20,7 @@
 
 .btn-outline-success:hover{
     color: greenyellow;
-    /* background-color: #1A237E */
+
 }
 .top{
     position: fixed;
@@ -32,30 +32,6 @@
     padding-top: 60px;
 }
 
-/* .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 9%;
-    width: 100%;
-    background-color: #1A237E;
-   z-index: 1;
-    color: white;
-    text-align: center;
- }
- .cts{
-     color: white;
- }
- .github{
-     color: white;
- }
- .cts:hover{
-    color: greenyellow;
-    text-decoration: none;
-}
-.github:hover{
-    color: greenyellow;
-} */
 
 
 @media only screen and (max-width: 1170px) {

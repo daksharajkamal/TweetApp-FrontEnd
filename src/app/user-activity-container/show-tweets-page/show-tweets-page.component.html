@@ -60,9 +60,7 @@
               data-toggle="modal" data-target="#exampleModalCenter">Edit<i class="ml-1 bi bi-pencil-fill"  style="font-size: 20px; border: none; outline: none;"></i></button>
             </div>
           </div>
-           <!-- del button -->
-            <!-- <button (click)="deleteTweet(tweet.tweetId)" type="submit" class="btn  col-2 text-right"><i class="bi bi-trash"  style="color: red; font-size: 20px; border: none; outline: none;"></i></button> -->
-        </div>
+                   </div>
         <div class="card-body text-center">
           <p class="card-text mb-4">{{tweet.tweetText}}</p>
         </div>
@@ -70,15 +68,15 @@
             <div class="row text-center card-text">
                 <a *ngIf="!tweet.likeStatus" class="col-4" (click)="likeTweet(tweet.tweetId)"><i class="bi bi-hand-thumbs-up"style="font-size:20px;"></i>{{tweet.likesCount}}</a>
                 <a *ngIf="tweet.likeStatus" (click)="disLikeTweet(tweet.tweetId)" class="col-4"><i class="bi bi-hand-thumbs-up-fill"style="font-size:20px;"></i>{{tweet.likesCount}}</a>
-            <!-- <button style="color: white;" *ngIf="!enableLikeButton"class="btn col-4"><i class="bi bi-hand-thumbs-up"style="color:white; font-size:20px;"></i>{{tweet.likesCount}}</button> -->
+          
             <a class="col-4">
-                <!-- <i class="bi bi-hand-thumbs-down"  style="font-size:20px;"></i>3 -->
+               
             </a>
             <button style="color: white;" class="btn col-4"><i (click)="isReplyClicked(i)" class="bi bi-chat-left-text"  style="font-size:20px;"></i>{{tweet.commentsCount}}</button>
             </div>
         </div>
         <label class="mb-0 text-sm" *ngIf="clickedReplyButton[i]" >Replies</label>
-        <!-- <p *ngIf="noComments[i]" class="ml-1 col-12 text-center">No comments !</p> -->
+      
         <div  *ngIf="clickedReplyButton[i]" id="style-2" class="scroll mt-3">
             <div *ngFor="let com of tweet.comments" class="row">
                 <p class="ml-1 col-5">

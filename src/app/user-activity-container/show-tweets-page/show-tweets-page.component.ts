@@ -36,7 +36,7 @@ export class ShowTweetsPageComponent implements OnInit {
   likedTweetPopup : boolean = false;
   updateTweetPopup : boolean = false;
   disLikedTweetPopup : boolean = false;
-  // noComments : {[key: number] : boolean} ={};
+
 
   constructor(formBuilder : FormBuilder,  private locationStrategy: LocationStrategy, public tweetService : TweetsService , public router : Router) {
     this.todaysDataTime = formatDate(this.today, 'dd-MM-yyyy', 'en-US', '+0530');
@@ -48,11 +48,11 @@ export class ShowTweetsPageComponent implements OnInit {
   }
 
   showTweets(){
-    // sessionStorage.getItem('name');
+
     this.tweetService.getAllTweetsOfUser(sessionStorage.getItem('user')).subscribe(response =>{
     this.tweets = response;
      
-    // console.log(this.tweets);
+
       if(this.tweets.length!=0){
         this.noTweets = false;
       }else{
@@ -64,14 +64,14 @@ export class ShowTweetsPageComponent implements OnInit {
 
 
   deleteTweet(id : string){
-    // console.log(id);
+
     this.tweetService.deleteTweet(id).subscribe(response=>{
-      // console.log(response);
+ 
       this.tweetService.getAllTweetsOfUser(sessionStorage.getItem('user')).subscribe(response =>{
         this.tweets = response;
         this.deleteTweetPopup = true;
         setTimeout(function() {
-          // console.log('hide');
+      
           this.deleteTweetPopup = false;
         }.bind(this), 3000);
         if(this.tweets.length!=0){
@@ -80,9 +80,9 @@ export class ShowTweetsPageComponent implements OnInit {
           this.noTweets = true;
         }
       },
-      // failure function
+
       failureData => {
-        // console.log(failureData);
+   
       });
     });
   }
@@ -92,7 +92,7 @@ export class ShowTweetsPageComponent implements OnInit {
     this.tweetService.editTweet(id).subscribe((response : TweetResponse)=>{
       this.singleTweet = response;
       this.tweetTex = this.singleTweet.tweetText;
-      // console.log(response);
+  
     })
     }
 
@@ -103,7 +103,7 @@ export class ShowTweetsPageComponent implements OnInit {
         this.tweetEmpty = false;
         this.showTweetLength = true;
         this.remainingTweetLength = 145 - tweet.length ;
-        // console.log(this.remainingTweetLength);
+
       }
       else{
         this.showTweetLength = false
@@ -122,7 +122,7 @@ export class ShowTweetsPageComponent implements OnInit {
   
   
   updateTweet(tweet : HTMLInputElement , id : string){
-    // console.log(id);
+
     if(tweet.value.length==0){
       this.tweetEmpty = true
     }
@@ -130,12 +130,11 @@ export class ShowTweetsPageComponent implements OnInit {
       this.tweetEmpty = false;
     }
     this.tweetService.updateTweet(id,tweet.value).subscribe((response)=>{
-      // console.log(response);
+
       if(response == "success"){
         setTimeout(function() {
           this.updateTweetPopup = true;
-          // console.log(this.updateTweetPopup);
-          // console.log('hide');
+
           this.updateTweetPopup = false;
         }.bind(this), 3000);
         this.showModel = false;
@@ -145,7 +144,7 @@ export class ShowTweetsPageComponent implements OnInit {
     },
     // failure function
     failureData => {
-      // console.log(failureData);
+    
     });
   }
 
@@ -156,46 +155,46 @@ export class ShowTweetsPageComponent implements OnInit {
   }
 
   likeTweet(id : string){
-    // console.log(id);
+   
     this.tweetService.likeTweet(id).subscribe((response)=>{
-      // console.log(response);
+
       if(response == "success"){
         this.showTweets();
         this.likedTweetPopup = true;
         setTimeout(function() {
-          // console.log('hide');
+       
           this.likedTweetPopup = false;
         }.bind(this), 3000);
       }
     },
     // failure function
     failureData => {
-      // console.log(failureData);
+ 
     });
   }
 
   disLikeTweet(id : string){
-    // console.log(id);
+
     this.tweetService.disLikeTweet(id).subscribe((response)=>{
-      // console.log(response);
+   
       if(response == "success"){
         this.showTweets();
         this.disLikedTweetPopup = true;
         setTimeout(function() {
-          // console.log('hide');
+        
           this.disLikedTweetPopup = false;
         }.bind(this), 3000);
       }
     },
-    // failure function
+
     failureData => {
-      // console.log(failureData);
+   
     });
   }
 
 
   modelshow(){
-    // console.log("model show called")
+    
     if(this.showModel = false){
       this.showModel =  true
     }else{
@@ -212,16 +211,15 @@ export class ShowTweetsPageComponent implements OnInit {
       alert("Reply can't be empty");
     }
     else{
-        // alert("commented!");
-        // console.log(id)
+
         this.tweetService.replyTweet(reply,id).subscribe((response=>{
-          // console.log(response);
+ 
           if(response=="success"){
             this.myFormGroup.controls['reply'].reset();
             this.showElement = true;
             this.showTweets();
             setTimeout(function() {
-              // console.log('hide');
+     
               this.showElement = false;
             }.bind(this), 3000);
           }
@@ -229,7 +227,7 @@ export class ShowTweetsPageComponent implements OnInit {
         }),
         // failure function
         failureData => {
-          // console.log(failureData);
+  
         });
         
       }
@@ -238,7 +236,7 @@ export class ShowTweetsPageComponent implements OnInit {
 
   showButton(){
     let reply = this.myFormGroup.controls['reply'].value;
-    // console.log(reply);
+ 
     if(reply.length==0){
       this.enablePostButton = false;
     }else{
@@ -247,7 +245,7 @@ export class ShowTweetsPageComponent implements OnInit {
   }
 
   preventBackButton() {
-    // console.log("preventBackButton method")
+
     history.pushState(null, null, location.href);
     this.locationStrategy.onPopState(() => {
       history.pushState(null, null, location.href);
@@ -270,10 +268,7 @@ export class ShowTweetsPageComponent implements OnInit {
   ngOnInit(): void {
     this.preventBackButton();
     this.showTweets();
-    // setInterval(()=>{
-    //   // console.log("called set interval");
-    //   this.showTweets();
-    // },5000) 
+
   }
 
 }

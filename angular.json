@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tweetapp-angular"
+    }
+  },
+  "defaultProject": "tweetapp-angular",
+  "cli": {
+    "analytics": "c363df06-c051-4445-9d77-7a5282797996"
+  }
 }
